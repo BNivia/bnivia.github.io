@@ -11,7 +11,22 @@ var setgrid = function(){
 }
 
 //array that holds all winning combinations
-let wins = [];
+const wins = [[0,1,2], [0,3,6], [0,4,9],
+            [3,4,5], [6,7,8], [2,4,6],
+            [1,4,7], [2,5,8]];
+
+
+var declarewin = function(array){
+    for(let vals of wins){
+        if(array[vals[0]] == 'O' && array[vals[1]] == 'O' && array[vals[2]] == 'O'){
+            return 'O';
+        }
+        if (array[vals[0]] == 'X' && array[vals[1]] == 'X' && array[vals[2]] == 'X'){
+            return 'X';
+        }
+    }
+    return 'none';
+}
 
 document.addEventListener('DOMContentLoaded', function () {
     var status = document.querySelector('#status');
@@ -30,16 +45,28 @@ document.addEventListener('DOMContentLoaded', function () {
                 square.textContent = 'O';
                 square.classList.add("O");
                 o = false;
-                state.push(square.textContent);
+                //state.push(square.textContent);
             }
 
             else if(!o && square.textContent == ''){
                 square.textContent = 'X';
                 square.classList.add("X");
                 o = true;
-                state.push(square.textContent);
+                //state.push(square.textContent);
             }
             console.log(state);
+
+            state = [...sq].map(square => square.textContent);
+
+            if(declarewin(state) == 'O'){
+                status.textContent = "Congratulations! O is the Winner!";
+                status.classList.add('you-won');
+            }
+
+            if(declarewin(state) == 'X'){
+                status.textContent = "Congratulations! X is the Winner!";
+                status.classList.add('you-won');
+            }
         });
 
         //add hover

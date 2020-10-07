@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     setgrid();
 
+    //array with all squares from grid
     let sq = document.querySelectorAll('.square');
     
     sq.forEach(square => {
@@ -38,16 +39,18 @@ document.addEventListener('DOMContentLoaded', function () {
                 o = true;
                 state.push(square.textContent);
             }
-
-
-            
             console.log(state);
-
-            
-
-            
-
         });
+
+        //add hover
+        square.addEventListener('mouseenter', () =>{
+            square.classList.add('hover');
+        })
+
+        //take away hover
+        square.addEventListener('mouseleave', () =>{
+            square.classList.remove('hover');
+        })
     });
 
 	//console.log('Content has been loaded...');

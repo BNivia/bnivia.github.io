@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 o = true;
                 //state.push(square.textContent);
             }
-            console.log(state);
+            //console.log(state);
 
             state = [...sq].map(square => square.textContent);
 
@@ -86,6 +86,8 @@ document.addEventListener('DOMContentLoaded', function () {
             status.classList.remove('you-won');
             sq.forEach(square => {
                 square.textContent = '';
+                square.classList.remove("X");
+                square.classList.remove("O");
             });
             status.textContent= "Move your mouse over a square and click to play an X or an O.";
         })

@@ -30,7 +30,6 @@ var declarewin = function(array){
 
 document.addEventListener('DOMContentLoaded', function () {
     var status = document.querySelector('#status');
-    var button = document.querySelector('.btn');
     var state = [];
     let o = true;
 
@@ -58,11 +57,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
             state = [...sq].map(square => square.textContent);
 
+            //check if O won 
             if(declarewin(state) == 'O'){
                 status.textContent = "Congratulations! O is the Winner!";
                 status.classList.add('you-won');
             }
 
+            //check if X won
             if(declarewin(state) == 'X'){
                 status.textContent = "Congratulations! X is the Winner!";
                 status.classList.add('you-won');
@@ -77,6 +78,16 @@ document.addEventListener('DOMContentLoaded', function () {
         //take away hover
         square.addEventListener('mouseleave', () =>{
             square.classList.remove('hover');
+        })
+
+        //reset button
+        var button = document.querySelector('.btn');
+        button.addEventListener('click', () =>{
+            status.classList.remove('you-won');
+            sq.forEach(square => {
+                square.textContent = '';
+            });
+            status.textContent= "Move your mouse over a square and click to play an X or an O.";
         })
     });
 

@@ -25,7 +25,7 @@ var declarewin = function(array){
             return 'X';
         }
     }
-    return 'none';
+    return 'nowin';
 }
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -68,6 +68,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 status.textContent = "Congratulations! X is the Winner!";
                 status.classList.add('you-won');
             }
+	    //if no win
+	    if(declarewin(state) == 'nowin'){
+		status.textContent = "Oops, no winner. Try again!";
+		status.classList.add('you-won');
+	    }
         });
 
         //add hover

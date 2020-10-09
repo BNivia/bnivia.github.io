@@ -68,12 +68,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 status.textContent = "Congratulations! X is the Winner!";
                 status.classList.add('you-won');
             }
-	    //if no win
-	    let count = state.length - 9
-	    if(declarewin(state) == 'nowin' && count == 0 ){
-		status.textContent = "Oops, no winner. Try again!";
-		status.classList.add('you-won');
-	    }
+	
         });
 
         //add hover

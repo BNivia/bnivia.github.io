@@ -69,7 +69,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 status.classList.add('you-won');
             }
 	    //if no win
-	    if(declarewin(state) == 'nowin'){
+	    let count = state.length - 9
+	    if(declarewin(state) == 'nowin' && count == 0 ){
 		status.textContent = "Oops, no winner. Try again!";
 		status.classList.add('you-won');
 	    }
